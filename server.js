@@ -8,12 +8,25 @@ app.use(morgan('combined'));
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
-
-var articleone = {
+var articles = {
+articleone : {
  title: 'artcleone',
  heading: 'article-one',
  date: 'date',
  body: 'hey their this is excellent'
+},
+articletwo : {
+ title: 'artcletwo',
+ heading: 'article-two',
+ date: 'date',
+ body: 'hey their this is excellent'
+},
+articlethree : {
+ title: 'artclethree',
+ heading: 'article-three',
+ date: 'date',
+ body: 'hey their this is excellent'
+}
 };
 function createTemplate(data){
     var title=data.title;
@@ -47,20 +60,10 @@ var htmlTemplate = `
 return htmlTemplate;
 }
 
-app.get('/articleone', function (req, res) {
-  res.send(createTemplate(articleone));
-});
-
-
-
-app.get('/article-one.html', function (req, res) {
-  res.sendFile(path.join(__dirname, 'ui', 'article-one.html'));
-});
-app.get('/article-two.html', function (req, res) {
-  res.sendFile(path.join(__dirname, 'ui', 'article-two.html'));
-});
-app.get('/article-three.html', function (req, res) {
-  res.sendFile(path.join(__dirname, 'ui', 'article-three.html'));
+app.get('/:articleName', function (req, res) {
+    // /:articleName = articleone
+    var articleName = req.params.articleName;
+  res.send(createTemplate(articles[articleName]));
 });
 
 app.get('/ui/style.css', function (req, res) {
