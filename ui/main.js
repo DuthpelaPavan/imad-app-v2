@@ -37,8 +37,7 @@ button.onclick=function(){
     request.onreadystatechange=function(){
         if(request.readyState === XMLHttpRequest.DONE){
             if(request.status === 200){
-                var nameinput=document.getElementById('text');
-var name=nameinput.value;
+                
 names=request.responseText;
 names=JSON.parse(names);
 list='';
@@ -51,6 +50,8 @@ ul.innerHTML=list;
         }
         
     };
+    var nameinput=document.getElementById('text');
+var name=nameinput.value;
     request.open('GET','http://duthpelapavan.imad.hasura-app.io/submit-name?name=' +name,true);
     request.send(null);
 };
