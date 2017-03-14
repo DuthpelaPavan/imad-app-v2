@@ -4,7 +4,7 @@ var img=document.getElementById('img');
 
 var marginLeft=0;
 function moveRight(){
-    marginLeft = marginLeft+2;
+    marginLeft = marginLeft+20;
     img.style.marginLeft = marginLeft + 'px';
 }
 
