@@ -12,10 +12,10 @@ function moveRight(){
 img.onclick = function(){
     var interval = setInterval(moveRight,20);
 };
-
+var counter=0;
 var button=document.getElementById('counter');
 button.onclick=function(){
-    counter=counter+1;
-var count=document.getElementById('count');
-count.innerHTML=counter.toString();
+var span=document.getElementById('count');
+counter=counter+1;
+span.innerHTML=counter.toString();
 };
