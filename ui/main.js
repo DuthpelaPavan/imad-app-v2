@@ -28,6 +28,30 @@ span.innerHTML=counter.toString();
     };
     request.open('GET','http://duthpelapavan.imad.hasura-app.io/counterplus',true);
     request.send(null);
-    
-
 };
+
+
+var button=document.getElementById('submit');
+button.onclick=function(){
+    var request= new XMLHttpRequest();
+    request.onreadystatechange=function(){
+        if(request.readyState === XMLHttpRequest.DONE){
+            if(request.status === 200){
+                var nameinput=document.getElementById('text');
+var names=nameinput.value;
+names=request.responseText;
+names=JSON.parse(names);
+list='';
+for(i=0;i<names.length;i++){
+    list+='<li>'+names[i]+'</li>';
+}
+var ul=document.getElementById('namelist');
+ul.innerHTML=list;
+            }
+        }
+        
+    };
+    request.open('GET','http://duthpelapavan.imad.hasura-app.io/submit-name?name=' +name,true);
+    request.send(null);
+};
+
