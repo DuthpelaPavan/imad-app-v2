@@ -18,4 +18,4 @@ counter.onclick=function(){
     counter=counter+1;
 var count=document.getElementById('count');
 count=counter.toString();
-}
+};
