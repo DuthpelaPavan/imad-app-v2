@@ -13,8 +13,8 @@ img.onclick = function(){
     var interval = setInterval(moveRight,20);
 };
 
-var counter=document.getElementById('counter');
-counter.onclick=function(){
+var button=document.getElementById('counter');
+button.onclick=function(){
     counter=counter+1;
 var count=document.getElementById('count');
 count.innerHTML=counter.toString();
